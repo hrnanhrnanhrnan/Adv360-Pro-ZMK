@@ -10,12 +10,6 @@
       #include "version.dtsi"
       #ifndef VERSION_MACRO
 
-        macro_ver: macro_ver {
-            compatible = "zmk,behavior-macro";
-            label = "macro_version";
-            #binding-cells = <0>;
-            bindings = <&kp RET>;
-        };
 
         #endif
 
@@ -58,19 +52,16 @@
         };
     };
 
-    macros {
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
 &kp EQUAL  &kp N1         &kp N2         &kp N3          &kp N4          &kp N5  &tog 1                                                   &mo 3      &kp N6  &kp N7         &kp N8         &kp N9          &kp N0             &kp MINUS
-&tog 1     &kp Q          &kp W          &kp E           &kp R           &kp T   &none                                                    &none      &kp Y   &kp U          &kp I          &kp O           &kp P              &kp BSLH
+&kp TAB    &kp Q          &kp W          &kp E           &kp R           &kp T   &none                                                    &none      &kp Y   &kp U          &kp I          &kp O           &kp P              &kp BSLH
 &kp ESC    &hrm_L LGUI A  &hrm_L LALT S  &hrm_L LCTRL D  &hrm_L LSHFT F  &kp G   &none     &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL  &none      &kp H   &hrm_R RGUI J  &hrm_R RALT K  &hrm_R RCTRL L  &hrm_R RSHFT SEMI  &kp SQT
 &mo 2      &kp Z          &kp X          &kp C           &kp V           &kp B                        &kp HOME      &kp PG_UP                        &kp N   &kp M          &kp COMMA      &kp DOT         &kp FSLH           &mo 2
-&kp TAB    &kp GRAVE      &kp CAPS       &none           &none                   &kp BSPC  &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp SPACE          &none          &none          &none           &none              &kp TAB
+&none      &kp GRAVE      &kp CAPS       &none           &none                   &kp BSPC  &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp SPACE          &none          &none          &none           &none              &none
             >;
         };
 
@@ -80,17 +71,17 @@
 &tog 1     &kp Q          &kp W          &kp E           &kp R           &kp T   &none                                                    &none      &kp Y   &kp KP_N7   &kp KP_N8     &kp KP_N9      &kp KP_MINUS     &kp BSLH
 &kp ESC    &hrm_L LGUI A  &hrm_L LALT S  &hrm_L LCTRL D  &hrm_L LSHFT F  &kp G   &none     &kp LCTRL  &kp LALT      &kp LGUI   &kp RCTRL  &none      &kp H   &kp KP_N4   &kp KP_N5     &kp KP_N6      &kp KP_PLUS      &kp SQT
 &mo 2      &kp Z          &kp X          &kp C           &kp V           &kp B                        &kp HOME      &kp PG_UP                        &kp N   &kp KP_N1   &kp KP_N2     &kp KP_N3      &kp KP_ENTER     &mo 2
-&kp TAB    &kp GRAVE      &kp CAPS       &kp LEFT        &kp RIGHT               &kp BSPC  &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp KP_N0          &none       &none         &kp KP_DOT     &kp RBKT         &kp TAB
+&none      &kp GRAVE      &kp CAPS       &kp LEFT        &kp RIGHT               &kp BSPC  &kp DEL    &kp END       &kp PG_DN  &kp ENTER  &kp KP_N0          &none       &none         &kp KP_DOT     &kp RBKT         &none
             >;
         };
 
         fn {
             bindings = <
-&kp F1  &kp F2          &kp F3           &kp F4            &kp F5           &kp F6  &tog 1                                      &mo 3   &kp F7          &kp F8          &kp F9        &kp F10           &kp F11            &kp F12
-&trans  &trans          &trans           &trans            &trans           &trans  &none                                       &none   &trans          &trans          &trans        &trans            &trans             &trans
-&trans  &hrm_L LGUI F5  &hrm_L LALT F10  &hrm_L LCTRL F11  &hrm_L LSHFT F9  &trans  &none   &trans  &trans      &trans  &trans  &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT_ARROW   &trans             &trans
-&trans  &trans          &trans           &trans            &trans           &trans                  &trans      &trans                  &trans          &kp MINUS       &kp EQUAL     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &trans
-&trans  &trans          &trans           &trans            &trans                   &trans  &trans  &trans      &trans  &trans  &trans                  &trans          &trans        &trans            &trans             &trans
+&kp F1  &kp F2     &kp F3     &kp F4     &kp F5     &kp F6  &tog 1                                      &mo 3   &kp F7                       &kp F8                       &kp F9                 &kp F10                         &kp F11            &kp F12
+&trans  &trans     &trans     &trans     &trans     &trans  &none                                       &none   &kp F5                       &kp F10                      &kp F11                &kp F9                          &trans             &trans
+&trans  &kp LC(X)  &kp LC(A)  &kp LC(C)  &kp LC(V)  &trans  &none   &trans  &trans      &trans  &trans  &none   &hrm_R RIGHT_GUI LEFT_ARROW  &hrm_R RIGHT_ALT DOWN_ARROW  &hrm_R RCTRL UP_ARROW  &hrm_R RIGHT_SHIFT RIGHT_ARROW  &trans             &trans
+&trans  &trans     &trans     &trans     &trans     &trans                  &trans      &trans                  &trans                       &kp MINUS                    &kp EQUAL              &kp LEFT_BRACKET                &kp RIGHT_BRACKET  &trans
+&trans  &trans     &trans     &trans     &trans             &trans  &trans  &trans      &trans  &trans  &trans                               &trans                       &trans                 &trans                          &trans             &trans
             >;
         };
 
